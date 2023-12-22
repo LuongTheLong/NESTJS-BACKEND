@@ -1,14 +1,22 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { TestModulesModule } from './test-modules/test-modules.module';
 import { DatabaseModule } from './database/database.module';
 import { EmployeesModule } from './employees/employees.module';
+import { MulterModule } from '@nestjs/platform-express';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [UsersModule, TestModulesModule, DatabaseModule, EmployeesModule],
+  imports: [
+    DatabaseModule,
+    EmployeesModule,
+    MulterModule.register({
+      dest: './uploads', // Đường dẫn để lưu trữ tệp tin
+    }),
+    AuthModule, UsersModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

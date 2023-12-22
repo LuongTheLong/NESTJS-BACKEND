@@ -6,32 +6,44 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
-}
-  
-
-model User {
-  id Int @id @default(autoincrement())
-  name String @unique
-  email String @unique
-  role Role
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
 }
 
 model Employees {
-  id Int @id @default(autoincrement())
-  name String 
-  email String @unique
-  role Role
+  id       Int      @id @default(autoincrement())
+  name     String
+  email    String
+  role     Role
   createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  updateAt DateTime @updatedAt()
 }
 
 enum Role {
   ADMIN
   MEMBER
   USER
+}
+
+model Users {
+  id                      Int      @id @default(autoincrement())
+  name                    String
+  address                 String
+  dateOfBirth             DateTime
+  jobType                 String
+  email                   String   @unique
+  company                 String
+  phoneNumber             String
+  position                String
+  hashedPassword          String
+  isPublicInfo            Boolean  @default(false)
+  imageCID                String
+  nameOfAssistance        String
+  phoneNumberOfAssistance String
+  positionOfAssistance    String
+  emailOfAssistance       String
+  checkConfirmBox         Boolean
+  createAt                DateTime @default(now())
+  updateAt                DateTime @updatedAt()
 }
