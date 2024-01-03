@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { CreateNewsDto } from "./dto/create-news.dto";
 import { UpdateNewsDto } from "./dto/update-news.dto";
-import { DatabaseService } from "src/database/database.service";
+import { DatabaseService } from "../database/database.service";
 import { PaginationInput } from "../common/pagination.dto";
 import { Prisma } from "@prisma/client";
 

@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
 import { OrganizationalRulesService } from "./organizational-rules.service";
 import { OrganizationalRulesController } from "./organizational-rules.controller";
-import { DatabaseService } from "src/database/database.service";
-import { ModelContentCommonsService } from "src/model-content-commons/model-content-commons.service";
+import { DatabaseService } from "../database/database.service";
+import { ModelContentCommonsService } from "../model-content-commons/model-content-commons.service";
 
 @Module({
   controllers: [OrganizationalRulesController],

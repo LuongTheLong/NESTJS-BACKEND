@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { CreateModelContentCommonDto } from "./dto/create-model-content-common.dto";
 import { UpdateModelContentCommonDto } from "./dto/update-model-content-common.dto";
-import { DatabaseService } from "src/database/database.service";
+import { DatabaseService } from "../database/database.service";
 import { Prisma } from "@prisma/client";
 
 @Injectable()

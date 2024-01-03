@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { CreateHistoryStartDto } from "./dto/create-history-start.dto";
 import { UpdateHistoryStartDto } from "./dto/update-history-start.dto";
-import { ModelContentCommonsService } from "src/model-content-commons/model-content-commons.service";
-import { DatabaseService } from "src/database/database.service";
+import { ModelContentCommonsService } from "../model-content-commons/model-content-commons.service";
+import { DatabaseService } from "../database/database.service";
 import { Prisma } from "@prisma/client";
 
 @Injectable()

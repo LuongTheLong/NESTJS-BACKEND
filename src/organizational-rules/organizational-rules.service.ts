@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { CreateOrganizationalRuleDto } from "./dto/create-organizational-rule.dto";
 import { UpdateOrganizationalRuleDto } from "./dto/update-organizational-rule.dto";
-import { ModelContentCommonsService } from "src/model-content-commons/model-content-commons.service";
-import { DatabaseService } from "src/database/database.service";
+import { ModelContentCommonsService } from "../model-content-commons/model-content-commons.service";
+import { DatabaseService } from "../database/database.service";
 import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
 

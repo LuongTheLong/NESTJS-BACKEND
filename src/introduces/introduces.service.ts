@@ -1,7 +1,7 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { CreateIntroduceDto } from "./dto/create-introduce.dto";
 import { UpdateIntroduceDto } from "./dto/update-introduce.dto";
-import { DatabaseService } from "src/database/database.service";
+import { DatabaseService } from "../database/database.service";
 import { Prisma } from "@prisma/client";
 
 @Injectable()

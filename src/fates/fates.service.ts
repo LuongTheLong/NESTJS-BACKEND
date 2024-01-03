@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { CreateFateDto } from "./dto/create-fate.dto";
 import { UpdateFateDto } from "./dto/update-fate.dto";
-import { ModelContentCommonsService } from "src/model-content-commons/model-content-commons.service";
-import { DatabaseService } from "src/database/database.service";
+import { ModelContentCommonsService } from "../model-content-commons/model-content-commons.service";
+import { DatabaseService } from "../database/database.service";
 import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
 

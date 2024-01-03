@@ -3,7 +3,7 @@ import { Prisma, Roles } from "@prisma/client";
 import { Request } from "express";
 import { NotFoundError } from "rxjs";
 import { PaginationInput } from "../common/pagination.dto";
-import { DatabaseService } from "src/database/database.service";
+import { DatabaseService } from "../database/database.service";
 
 @Injectable()
 export class UsersService {

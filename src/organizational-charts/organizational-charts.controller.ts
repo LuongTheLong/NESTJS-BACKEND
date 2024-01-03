@@ -5,7 +5,7 @@ import { UpdateOrganizationalChartDto } from "./dto/update-organizational-chart.
 import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
 import { ApiTags } from "@nestjs/swagger";
-import { FileInputDto } from "src/common/fileInputOnlyDto";
+import { FileInputDto } from "../common/fileInputOnlyDto";
 
 @Controller("organizational-charts")
 @ApiTags("organizational-charts")

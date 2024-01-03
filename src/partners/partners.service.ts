@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { CreatePartnerDto } from "./dto/create-partner.dto";
 import { UpdatePartnerDto } from "./dto/update-partner.dto";
-import { DatabaseService } from "src/database/database.service";
+import { DatabaseService } from "../database/database.service";
 import { PaginationInput } from "../common/pagination.dto";
 import { Prisma } from "@prisma/client";
 

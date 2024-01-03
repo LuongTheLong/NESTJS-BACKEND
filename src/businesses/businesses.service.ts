@@ -1,8 +1,8 @@
 import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 import { CreateBusinessDto } from "./dto/create-business.dto";
 import { UpdateBusinessDto } from "./dto/update-business.dto";
-import { DatabaseService } from "src/database/database.service";
-import { AuthService } from "src/auth/auth.service";
+import { DatabaseService } from "../database/database.service";
+import { AuthService } from "../auth/auth.service";
 import { Prisma } from "@prisma/client";
 import { Request } from "express";
 import { PaginationInput } from "../common/pagination.dto";

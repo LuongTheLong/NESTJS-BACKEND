@@ -1,6 +1,6 @@
 import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 import { CreateUserDto } from "./dto/auth.dto";
-import { DatabaseService } from "src/database/database.service";
+import { DatabaseService } from "../database/database.service";
 import * as bcrypt from "bcrypt";
 import { LoginModelDto } from "./dto/login.dto";
 import { JwtService } from "@nestjs/jwt";
@@ -8,7 +8,7 @@ import { jwtSecret } from "./utils/constants";
 import { Request, Response } from "express";
 import { Roles as Roles, STATUS } from "@prisma/client";
 import { PrismaClient } from "@prisma/client";
-import { RolesService } from "src/roles/roles.service";
+import { RolesService } from "../roles/roles.service";
 import { CreateAdminDto } from "./dto/adminAccountInput";
 import { use } from "passport";
 import { isEmpty } from "class-validator";

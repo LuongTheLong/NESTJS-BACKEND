@@ -1,11 +1,11 @@
 import { Injectable } from "@nestjs/common";
 import { CreateOrganizationalChartDto } from "./dto/create-organizational-chart.dto";
 import { UpdateOrganizationalChartDto } from "./dto/update-organizational-chart.dto";
-import { ModelContentCommonsService } from "src/model-content-commons/model-content-commons.service";
-import { DatabaseService } from "src/database/database.service";
+import { ModelContentCommonsService } from "../model-content-commons/model-content-commons.service";
+import { DatabaseService } from "../database/database.service";
 import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
-import { FileInputDto } from "src/common/fileInputOnlyDto";
+import { FileInputDto } from "../common/fileInputOnlyDto";
 
 @Injectable()
 export class OrganizationalChartsService {

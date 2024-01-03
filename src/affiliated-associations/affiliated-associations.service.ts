@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { CreateAffiliatedAssociationDto } from "./dto/create-affiliated-association.dto";
 import { UpdateAffiliatedAssociationDto } from "./dto/update-affiliated-association.dto";
 import { PaginationInput } from "../common/pagination.dto";
-import { DatabaseService } from "src/database/database.service";
+import { DatabaseService } from "../database/database.service";
 import { Prisma } from "@prisma/client";
 
 @Injectable()

@@ -4,7 +4,7 @@ import { ApiTags } from "@nestjs/swagger";
 import { JwtAuthGuard } from "../auth/jwt.guard";
 import { Prisma } from "@prisma/client";
 import { PaginationInput } from "../common/pagination.dto";
-// import { PermissionsGuard } from 'src/auth/permissions.guard';
+// import { PermissionsGuard } from '../auth/permissions.guard';
 
 @Controller("users")
 @ApiTags("users")

@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { ModelContentCommonsService } from "./model-content-commons.service";
 import { ModelContentCommonsController } from "./model-content-commons.controller";
-import { DatabaseService } from "src/database/database.service";
+import { DatabaseService } from "../database/database.service";
 
 @Module({
   controllers: [ModelContentCommonsController],

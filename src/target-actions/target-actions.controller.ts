@@ -5,7 +5,7 @@ import { UpdateTargetActionDto } from "./dto/update-target-action.dto";
 import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
 import { ApiTags } from "@nestjs/swagger";
-import { FileInputDto } from "src/common/fileInputOnlyDto";
+import { FileInputDto } from "../common/fileInputOnlyDto";
 
 @Controller("target-actions")
 @ApiTags("target-actions")
