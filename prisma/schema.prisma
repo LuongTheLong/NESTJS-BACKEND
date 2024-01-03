@@ -11,23 +11,15 @@ datasource db {
   relationMode = "prisma"
 }
 
-model Employees {
-  id       Int      @id @default(autoincrement())
-  name     String
-  email    String
-  role     Role
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt()
-}
-
-enum Role {
-  ADMIN
-  MEMBER
-  USER
+enum STATUS {
+  DONE
+  NEED
+  PENDING
+  DECLINE
 }
 
 model Users {
-  id                      Int      @id @default(autoincrement())
+  id                      String   @id @default(uuid())
   name                    String
   address                 String
   dateOfBirth             DateTime
@@ -35,15 +27,181 @@ model Users {
   email                   String   @unique
   company                 String
   phoneNumber             String
-  position                String
+  position                String?
   hashedPassword          String
   isPublicInfo            Boolean  @default(false)
   imageCID                String
-  nameOfAssistance        String
-  phoneNumberOfAssistance String
-  positionOfAssistance    String
-  emailOfAssistance       String
+  nameOfAssistance        String?
+  phoneNumberOfAssistance String?
+  positionOfAssistance    String?
+  emailOfAssistance       String?
   checkConfirmBox         Boolean
+  roles                   Roles[]
+  status                  STATUS
   createAt                DateTime @default(now())
   updateAt                DateTime @updatedAt()
+}
+
+model Roles {
+  id            String   @id @default(uuid())
+  name          String   @unique
+  searchingName String   @unique
+  createAt      DateTime @default(now())
+  updateAt      DateTime @updatedAt()
+  Users         Users[]
+}
+
+model Business {
+  id                          String   @id @default(uuid())
+  name                        String
+  email                       String   @unique
+  position                    String
+  phoneNumber                 String
+  dateOfBirth                 DateTime
+  hashedPassword              String
+  isPublicInfo                Boolean  @default(false)
+  companyName                 String
+  domainWorking               String
+  businessAddress             String
+  businessEmail               String?
+  productBusiness             String?
+  businessMarketing           String?
+  imageLogo                   String
+  invitationLetter            String
+  businessLicenseOrOther      String
+  websiteBusiness             String?
+  numberOfBusinessCertificate String
+  theFirstTime                String
+  theSecondTime               String?
+  addressProvideCertificate   String
+  fullNamePersonalInLaw       String
+  positionPersonalInLaw       String
+  emailPersonalInLaw          String
+  phoneNumberPersonalInLaw    String
+  taxCode                     String
+  authorizedCapital           String
+  lastYearRevenue             String
+  typeOfBusiness              String
+  nameOfAssistance            String?
+  phoneNumberOfAssistance     String?
+  positionOfAssistance        String?
+  emailOfAssistance           String?
+  checkConfirmBox             Boolean
+  status                      STATUS
+  createAt                    DateTime @default(now())
+  updateAt                    DateTime @updatedAt()
+}
+
+model Introduces {
+  id       String   @id @default(uuid())
+  title    String
+  content  String
+  image    String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model ModelContentCommons {
+  id       String   @id @default(uuid())
+  title    String
+  content  String
+  pageId   String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model HistoryStarts {
+  id       String   @id @default(uuid())
+  year     String?
+  title    String?
+  content  String?
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model Fates {
+  id       String   @id @default(uuid())
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model Visions {
+  id       String   @id @default(uuid())
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model CoreValues {
+  id       String   @id @default(uuid())
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model FunctionAndMissions {
+  id       String   @id @default(uuid())
+  image    String?
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model TargetActions {
+  id       String   @id @default(uuid())
+  image    String?
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model OrganizationalCharts {
+  id       String   @id @default(uuid())
+  file     String?
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model OrganizationalRules {
+  id       String   @id @default(uuid())
+  file     String?
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model Partners {
+  id       String   @id @default(uuid())
+  image    String?
+  name     String
+  domain   String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model AffiliatedAssociations {
+  id       String   @id @default(uuid())
+  image    String?
+  name     String
+  domain   String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model News {
+  id       String   @id @default(uuid())
+  title    String
+  content  String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
+
+model Events {
+  id               String   @id @default(uuid())
+  locationOrganize String
+  unitOrganize     String
+  unitAction       String?
+  timeStart        DateTime
+  timeEnd          DateTime
+  content          String
+  invitation       Boolean? @default(false)
+  regisJoinIn      Boolean? @default(false)
+  regisSponsor     Boolean? @default(false)
+  createAt         DateTime @default(now())
+  updateAt         DateTime @updatedAt()
 }

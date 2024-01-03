@@ -1,34 +1,43 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { ApiTags } from '@nestjs/swagger';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, Query } from "@nestjs/common";
+import { UsersService } from "./users.service";
+import { ApiTags } from "@nestjs/swagger";
+import { JwtAuthGuard } from "src/auth/jwt.guard";
+import { Prisma } from "@prisma/client";
+import { PaginationInput } from "src/common/pagination.dto";
+// import { PermissionsGuard } from 'src/auth/permissions.guard';
 
-@Controller('users')
-@ApiTags('users')
+@Controller("users")
+@ApiTags("users")
 export class UsersController {
-  constructor(private readonly usersService: UsersService) { }
+  constructor(private readonly usersService: UsersService) {}
 
   // @Post()
   // create(@Body() createUserDto: CreateUserDto) {
   //   return this.usersService.create(createUserDto);
   // }
 
-  @Get()
-  findAll() {
-    return this.usersService.findAll();
+  @UseGuards(JwtAuthGuard)
+  // @UseGuards(PermissionsGuard)
+  @Get("profile")
+  findAll(@Query() paginationInput: PaginationInput) {
+    return this.usersService.findAll(paginationInput);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+  @UseGuards(JwtAuthGuard)
+  @Get("profile/:id")
+  getMyUser(@Param("id") id: string, @Req() req) {
+    return this.usersService.getMyUser(id, req);
   }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-  //   return this.usersService.update(+id, updateUserDto);
-  // }
+  @UseGuards(JwtAuthGuard)
+  @Patch("profile/:id")
+  updateUser(@Param("id") id: string, @Body() updateUserDto: Prisma.UsersUpdateInput) {
+    return this.usersService.updateUser(id, updateUserDto);
+  }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
+  @UseGuards(JwtAuthGuard)
+  @Delete("profile/:id")
+  remove(@Param("id") id: string) {
+    return this.usersService.remove(id);
   }
 }
