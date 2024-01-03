@@ -1,31 +1,43 @@
-import { Body, Controller, Param, Patch, Post, Put, Get } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto  } from './dto/update-user.dto';
-import {
-    ApiBearerAuth,
-    ApiOperation,
-    ApiResponse,
-    ApiTags,
-  } from '@nestjs/swagger';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, Query } from "@nestjs/common";
+import { UsersService } from "./users.service";
+import { ApiTags } from "@nestjs/swagger";
+import { JwtAuthGuard } from "src/auth/jwt.guard";
+import { Prisma } from "@prisma/client";
+import { PaginationInput } from "src/common/pagination.dto";
+// import { PermissionsGuard } from 'src/auth/permissions.guard';
 
-@Controller('users')
-@ApiBearerAuth()
-@ApiTags('users')
+@Controller("users")
+@ApiTags("users")
 export class UsersController {
-    @Get() // GET /users
-    getListAll(){
-        return true;
-    }
+  constructor(private readonly usersService: UsersService) {}
 
+  // @Post()
+  // create(@Body() createUserDto: CreateUserDto) {
+  //   return this.usersService.create(createUserDto);
+  // }
 
-    @Post() // POST /users
-    @ApiOperation({ summary: 'Create user' })
-    createUser(@Body() CreateUserInput: CreateUserDto){
-        return { CreateUserInput };
-    }
+  @UseGuards(JwtAuthGuard)
+  // @UseGuards(PermissionsGuard)
+  @Get("profile")
+  findAll(@Query() paginationInput: PaginationInput) {
+    return this.usersService.findAll(paginationInput);
+  }
 
-    @Put(':id') // PUT /users/:id
-    updateUser(@Param('id') id:string, @Body() UpdateUserInput: UpdateUserDto) {
-        return {id, ...UpdateUserInput};
-    }
+  @UseGuards(JwtAuthGuard)
+  @Get("profile/:id")
+  getMyUser(@Param("id") id: string, @Req() req) {
+    return this.usersService.getMyUser(id, req);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch("profile/:id")
+  updateUser(@Param("id") id: string, @Body() updateUserDto: Prisma.UsersUpdateInput) {
+    return this.usersService.updateUser(id, updateUserDto);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete("profile/:id")
+  remove(@Param("id") id: string) {
+    return this.usersService.remove(id);
+  }
 }
