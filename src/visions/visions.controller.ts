@@ -3,7 +3,7 @@ import { VisionsService } from "./visions.service";
 import { CreateVisionDto } from "./dto/create-vision.dto";
 import { UpdateVisionDto } from "./dto/update-vision.dto";
 import { ApiTags } from "@nestjs/swagger";
-import { CreateModelContentCommonDto } from "src/model-content-commons/dto/create-model-content-common.dto";
+import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
 
 @Controller("visions")

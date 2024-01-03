@@ -3,7 +3,7 @@ import { CreateCoreValueDto } from "./dto/create-core-value.dto";
 import { UpdateCoreValueDto } from "./dto/update-core-value.dto";
 import { ModelContentCommonsService } from "src/model-content-commons/model-content-commons.service";
 import { DatabaseService } from "src/database/database.service";
-import { CreateModelContentCommonDto } from "src/model-content-commons/dto/create-model-content-common.dto";
+import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
 
 @Injectable()

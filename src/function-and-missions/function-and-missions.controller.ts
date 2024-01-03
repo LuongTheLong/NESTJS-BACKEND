@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from "@nestjs/commo
 import { FunctionAndMissionsService } from "./function-and-missions.service";
 import { CreateFunctionAndMissionDto } from "./dto/create-function-and-mission.dto";
 import { UpdateFunctionAndMissionDto } from "./dto/update-function-and-mission.dto";
-import { CreateModelContentCommonDto } from "src/model-content-commons/dto/create-model-content-common.dto";
+import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
 import { ApiTags } from "@nestjs/swagger";
 import { FileInputDto } from "src/common/fileInputOnlyDto";

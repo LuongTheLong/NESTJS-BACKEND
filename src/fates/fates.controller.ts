@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from "@nestjs/commo
 import { FatesService } from "./fates.service";
 import { CreateFateDto } from "./dto/create-fate.dto";
 import { UpdateFateDto } from "./dto/update-fate.dto";
-import { CreateModelContentCommonDto } from "src/model-content-commons/dto/create-model-content-common.dto";
+import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
 import { ApiTags } from "@nestjs/swagger";
 

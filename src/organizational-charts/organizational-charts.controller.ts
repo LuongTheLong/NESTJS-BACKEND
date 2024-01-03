@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from "@nestjs/commo
 import { OrganizationalChartsService } from "./organizational-charts.service";
 import { CreateOrganizationalChartDto } from "./dto/create-organizational-chart.dto";
 import { UpdateOrganizationalChartDto } from "./dto/update-organizational-chart.dto";
-import { CreateModelContentCommonDto } from "src/model-content-commons/dto/create-model-content-common.dto";
+import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
 import { ApiTags } from "@nestjs/swagger";
 import { FileInputDto } from "src/common/fileInputOnlyDto";

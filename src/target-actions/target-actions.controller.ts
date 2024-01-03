@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from "@nestj
 import { TargetActionsService } from "./target-actions.service";
 import { CreateTargetActionDto } from "./dto/create-target-action.dto";
 import { UpdateTargetActionDto } from "./dto/update-target-action.dto";
-import { CreateModelContentCommonDto } from "src/model-content-commons/dto/create-model-content-common.dto";
+import { CreateModelContentCommonDto } from "../model-content-commons/dto/create-model-content-common.dto";
 import { Prisma } from "@prisma/client";
 import { ApiTags } from "@nestjs/swagger";
 import { FileInputDto } from "src/common/fileInputOnlyDto";
