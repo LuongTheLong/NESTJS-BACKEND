@@ -1,9 +1,9 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, Query } from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { ApiTags } from "@nestjs/swagger";
-import { JwtAuthGuard } from "src/auth/jwt.guard";
+import { JwtAuthGuard } from "../auth/jwt.guard";
 import { Prisma } from "@prisma/client";
-import { PaginationInput } from "src/common/pagination.dto";
+import { PaginationInput } from "../common/pagination.dto";
 // import { PermissionsGuard } from 'src/auth/permissions.guard';
 
 @Controller("users")

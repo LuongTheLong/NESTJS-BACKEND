@@ -5,7 +5,7 @@ import { DatabaseService } from "src/database/database.service";
 import { AuthService } from "src/auth/auth.service";
 import { Prisma } from "@prisma/client";
 import { Request } from "express";
-import { PaginationInput } from "src/common/pagination.dto";
+import { PaginationInput } from "../common/pagination.dto";
 
 @Injectable()
 export class BusinessesService {

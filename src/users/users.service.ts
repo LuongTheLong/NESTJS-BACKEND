@@ -2,7 +2,7 @@ import { ForbiddenException, Injectable, NotFoundException } from "@nestjs/commo
 import { Prisma, Roles } from "@prisma/client";
 import { Request } from "express";
 import { NotFoundError } from "rxjs";
-import { PaginationInput } from "src/common/pagination.dto";
+import { PaginationInput } from "../common/pagination.dto";
 import { DatabaseService } from "src/database/database.service";
 
 @Injectable()

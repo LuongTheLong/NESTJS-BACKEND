@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { CreateEventDto } from "./dto/create-event.dto";
 import { UpdateEventDto } from "./dto/update-event.dto";
 import { DatabaseService } from "src/database/database.service";
-import { PaginationInput } from "src/common/pagination.dto";
+import { PaginationInput } from "../common/pagination.dto";
 import { Prisma } from "@prisma/client";
 
 @Injectable()

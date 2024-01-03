@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from "@nestj
 import { AffiliatedAssociationsService } from "./affiliated-associations.service";
 import { CreateAffiliatedAssociationDto } from "./dto/create-affiliated-association.dto";
 import { UpdateAffiliatedAssociationDto } from "./dto/update-affiliated-association.dto";
-import { PaginationInput } from "src/common/pagination.dto";
+import { PaginationInput } from "../common/pagination.dto";
 import { Prisma } from "@prisma/client";
 import { ApiTags } from "@nestjs/swagger";
 
